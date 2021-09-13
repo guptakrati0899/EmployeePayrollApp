@@ -13,4 +13,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
             textError.textContent = e;
         }
     });
+    
+    const date = document.querySelector('#year');
+    const dateError = document.querySelector('.date-error');
+    date.addEventListener('input', function() {
+        const startDate = new Date(getInputValueById('#day')+" "+
+                                            getInputValueById('#month')+" "+
+                                            getInputValueById('#year'));
+        try {
+            (new EmployeePayrollData()).startDate = startDate;
+            dateError.textContent = "";
+        } catch (e) {
+            dateError.textContent = e;
+
+        }
+    });
+    
 });
